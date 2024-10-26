@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Arrays</title>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="array.html">Arrays</a>
+        <a href="linkedlist.html">Linked list</a>
+        <a href="hashtables.html">Hash Tables</a>
+    </nav>
+    <br>
+    <header>
+        <h1><strong>Arrays</strong></h1>
+    </header>
+    <hr>
+    <main>
+        <section>
+            Index
+        </section>
+        <article>
+            <h2 id="intro">
+                Introduction
+            </h2>
+            <hr>
+            <p>
+                In computer science, an array is a data structure consisting of a collection of elements (values or variables), of same memory size, each identified by at least one array index or key. 
+                An array is stored such that the position of each element can be computed from its index tuple by a mathematical formula. 
+                The simplest type of data structure is a linear array, also called a one-dimensional array.
+            </p>
+            <p>
+                Because the mathematical concept of a matrix can be represented as a two-dimensional grid, two-dimensional arrays are also sometimes called "matrices". In some cases the term "vector" is used in computing to refer to an array, although tuples rather than vectors are the more mathematically correct equivalent. Tables are often implemented in the form of arrays, especially lookup tables; the word "table" is sometimes used as a synonym of array.
+            </p>
+            <p>
+                Arrays are among the oldest and most important data structures, and are used by almost every program. They are also used to implement many other data structures, such as lists and strings. They effectively exploit the addressing logic of computers. In most modern computers and many external storage devices, the memory is a one-dimensional array of words, whose indices are their addresses. Processors, especially vector processors, are often optimized for array operations.
+            </p>
+            <p>
+                The term "array" may also refer to an array data type, a kind of data type provided by most high-level programming languages that consists of a collection of values or variables that can be selected by one or more indices computed at run-time. Array types are often implemented by array structures; however, in some languages they may be implemented by hash tables, linked lists, search trees, or other data structures.
+            </p>
+            <h2 id="his">
+                History
+            </h2>
+            <hr>
+            <p>
+                The first digital computers used machine-language programming to set up and access array structures for data tables, vector and matrix computations, and for many other purposes. John von Neumann wrote the first array-sorting program (merge sort) in 1945, during the building of the first stored-program computer. Array indexing was originally done by self-modifying code, and later using index registers and indirect addressing. 
+                Some mainframes designed in the 1960s, such as the Burroughs B5000 and its successors, used memory segmentation to perform index-bounds checking in hardware.
+            </p>
+            <p>
+                Assembly languages generally have no special support for arrays, other than what the machine itself provides. The earliest high-level programming languages, including FORTRAN (1957), Lisp (1958), COBOL (1960), and ALGOL 60 (1960), had support for multi-dimensional arrays, and so has C (1972). 
+                In C++ (1983), class templates exist for multi-dimensional arrays whose dimension is fixed at runtime as well as for runtime-flexible arrays.
+            </p>
+            <h2 id="app">
+                Applications
+            </h2>
+            <hr>
+            <p>
+                Arrays are used to implement mathematical vectors and matrices, as well as other kinds of rectangular tables. Many databases, small and large, consist of (or include) one-dimensional arrays whose elements are records.
+            </p>
+            <p>
+                Arrays are used to implement other data structures, such as lists, heaps, hash tables, deques, queues, stacks, strings, and VLists. Array-based implementations of other data structures are frequently simple and space-efficient (implicit data structures), requiring little space overhead, but may have poor space complexity, particularly when modified, compared to tree-based data structures (compare a sorted array to a search tree).
+            </p>
+            <p>
+                One or more large arrays are sometimes used to emulate in-program dynamic memory allocation, particularly memory pool allocation. Historically, this has sometimes been the only way to allocate "dynamic memory" portably.
+            </p>
+            <p>
+                Arrays can be used to determine partial or complete control flow in programs, as a compact alternative to (otherwise repetitive) multiple IF statements. They are known in this context as control tables and are used in conjunction with a purpose-built interpreter whose control flow is altered according to values contained in the array. The array may contain subroutine pointers (or relative subroutine numbers that can be acted upon by SWITCH statements) that direct the path of the execution.
+            </p>
+            <h2 id="element">
+                Element identifier and addressing formulas
+            </h2>
+            <p>
+                When data objects are stored in an array, individual objects are selected by an index that is usually a non-negative scalar integer. Indexes are also called subscripts. An index maps the array value to a stored object.
+            </p>
+            <p>
+                Using zero based indexing is the design choice of many influential programming languages, including C, Java and Lisp. This leads to simpler implementation where the subscript refers to an offset from the starting position of an array, so the first element has an offset of zero.
+            </p>
+            <p>
+                Arrays can have multiple dimensions, thus it is not uncommon to access an array using multiple indices. For example, a two-dimensional array A with three rows and four columns might provide access to the element at the 2nd row and 4th column by the expression A in the case of a zero-based indexing system. Thus two indices are used for a two-dimensional array, three for a three-dimensional array, and n for an n-dimensional array.
+            </p>
+            <p>
+                The number of indices needed to specify an element is called the dimension, dimensionality, or rank of the array.
+                <br>In standard arrays, each index is restricted to a certain range of consecutive integers (or consecutive values of some enumerated type), and the address of an element is computed by a "linear" formula on the indices.
+            </p>
+            <section>
+                <h3 id="oned">
+                    One-dimensional arrays
+                </h3>
+                
+                <p>
+                    A one-dimensional array (or single dimension array) is a type of linear array. Accessing its elements involves a single subscript which can either represent a row or column index.
+                </p>
+                <p>
+                    As an example consider the C declaration int anArrayName[10]; which declares a one-dimensional array of ten integers. Here, the array can store ten elements of type int . This array has indices starting from zero through nine. For example, the expressions anArrayName[0] and anArrayName[9] are the first and last elements respectively.
+                </p>
+                <figure id="imgarr">
+                    <img src="./images/img4.png" alt="Image not accessible">
+                    <figcaption>This is a diagram of a 1-D Array</figcaption>
+                </figure>
+                <p>
+                    For a vector with linear addressing, the element with index i is located at the address B + c · i, where B is a fixed base address and c a fixed constant, sometimes called the address increment or stride.
+                </p>
+                <p>
+                    If the valid element indices begin at 0, the constant B is simply the address of the first element of the array. For this reason, the C programming language specifies that array indices always begin at 0; and many programmers will call that element "zeroth" rather than "first".
+                </p>
+                <p>
+                    However, one can choose the index of the first element by an appropriate choice of the base address B. For example, if the array has five elements, indexed 1 through 5, and the base address B is replaced by B + 30c, then the indices of those same elements will be 31 to 35. If the numbering does not start at 0, the constant B may not be the address of any element.
+                </p>
+            </section>
+            <section>
+                <h3 id="avoid">
+                    Multidimensional arrays
+                </h3>
+                <figure id="floating">
+                    <img src="./images/img5.png" alt="Image not accessible">
+                    <figcaption>Diagram of a typical 2-D array</figcaption>
+                </figure>
+                <p>
+                    For a multidimensional array, the element with indices i,j would have address B + c · i + d · j, where the coefficients c and d are the row and column address increments, respectively.
+                </p>
+                <p>
+                    More generally, in a k-dimensional array, the address of an element with indices i<sub>1</sub>, i<sub>2</sub>, ..., i<sub>k</sub> is
+                </p>
+                <p>
+                    B + c<sub>1</sub> · i<sub>1</sub> + c<sub>2</sub> · i<sub>2</sub> + … + c<sub>k</sub> · i<sub>k</sub>.
+                </p>
+                <p>
+                    For example: int a[2][3];
+                    <br>
+                    This means that array a has 2 rows and 3 columns, and the array is of integer type. Here we can store 6 elements they will be stored linearly but starting from first row linear then continuing with second row. The above array will be stored as a<sub>11</sub>, a<sub>12</sub>, a<sub>13</sub>, a<sub>21</sub>, a<sub>22</sub>, a<sub>23</sub>.
+                </p>
+                <p>
+                    This formula requires only k multiplications and k additions, for any array that can fit in memory. Moreover, if any coefficient is a fixed power of 2, the multiplication can be replaced by bit shifting.
+                </p>
+                <p>
+                    The coefficients ck must be chosen so that every valid index tuple maps to the address of a distinct element.
+                </p>
+                <p>
+                    If the minimum legal value for every index is 0, then B is the address of the element whose indices are all zero. As in the one-dimensional case, the element indices may be changed by changing the base address B. 
+                    Thus, if a two-dimensional array has rows and columns indexed from 1 to 10 and 1 to 20, respectively, then replacing B by B + c<sub>1</sub> − 3c<sub>2</sub> will cause them to be renumbered from 0 through 9 and 4 through 23, respectively. Taking advantage of this feature, some languages (like FORTRAN 77) specify that array indices begin at 1, as in mathematical tradition while other languages (like Fortran 90, Pascal and Algol) let the user choose the minimum value for each index.
+                </p>
+            </section>
+            <section id="fortable">
+                <table>
+                    <tr>
+                    <th rowspan="2">Operation</th>
+                    <th colspan="6">Data Structure</th>
+                    </tr>
+                    <tr>
+                    <th class="header">Linked List</th>
+                    <th class="header">Array</th>
+                    <th class="header">Dynamic Array</th>
+                    <th class="header">Balanced Tree</th>
+                    <th class="header">Random Access List</th>
+                    <th class="header">Hashed Array Tree</th>
+                    </tr>
+                    <tr>
+                    <td>Indexing</td>
+                    <td class="red">Θ(n)</td>
+                    <td class="green">Θ(1)</td>
+                    <td class="green">Θ(1)</td>
+                    <td class="yellow">Θ(log n)</td>
+                    <td class="yellow red-text">Θ(log n)</td>
+                    <td class="green">Θ(1)</td>
+                    </tr>
+                    <tr>
+                    <td>Insert/delete at beginning</td>
+                    <td class="green">Θ(1)</td>
+                    <td class="gray">N/A</td>
+                    <td class="red">Θ(n)</td>
+                    <td class="yellow">Θ(log n)</td>
+                    <td class="green">Θ(1)</td>
+                    <td class="red">Θ(n)</td>
+                    </tr>
+                    <tr>
+                    <td>Insert/delete at end</td>
+                    <td class="yellow">Θ(n) when last element is unknown; Θ(1) when last element is known</td>
+                    <td class="gray">N/A</td>
+                    <td class="green">Θ(1) amortized</td>
+                    <td class="yellow">Θ(log n)</td>
+                    <td class="yellow">Θ(log n) updating</td>
+                    <td class="green">Θ(1) amortized</td>
+                    </tr>
+                    <tr>
+                    <td>Insert/delete in middle</td>
+                    <td class="yellow">search time + Θ(1)</td>
+                    <td class="gray">N/A</td>
+                    <td class="red">Θ(n)</td>
+                    <td class="yellow">Θ(log n)</td>
+                    <td class="yellow">Θ(log n) updating</td>
+                    <td class="red">Θ(n)</td>
+                    </tr>
+                    <tr>
+                    <td>Wasted space (average)</td>
+                    <td class="red">Θ(n)</td>
+                    <td class="green">O</td>
+                    <td class="red">Θ(n)</td>
+                    <td class="red">Θ(n)</td>
+                    <td class="red">Θ(n)</td>
+                    <td class="green">Θ(√n)</td>
+                    </tr>
+                </table>
+            </section>
+        </article>
+    </main>
+    <hr>
+    <footer>
+        <p>Group project by Yaksh Sharma , Aaryan Garg , HarmanPreet Singh.</p>
+        <p>This information was taken from wikipedia website.</p>
+        The link to the same is given The link to the same is given <button onclick="window.open('https://en.wikipedia.org/wiki/Linked_list', '_blank');" >Here</button>.
+    </footer>
+</body>
+
+</html>

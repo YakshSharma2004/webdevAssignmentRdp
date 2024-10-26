@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Hash Tables</title>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="array.html">Arrays</a>
+        <a href="linkedlist.html">Linked list</a>
+        <a href="hashtables.html">Hash Tables</a>
+    </nav>
+    <br>
+    <header>
+        <h1><strong>Hash Tables</strong></h1>
+    </header>
+    <hr>
+    <main class="hashmain">
+        <section>
+            Index
+            <ul>
+                <li><a href="#introstart">Introduction</a></li>
+                <li><a href="#hashfun">Hash Function</a></li>
+                <li><a href="#collision">Collision resolution</a></li>
+                <li><a href="#space">Space complexity</a></li>
+            </ul>
+        </section>
+        <section>
+            <article id="introstart">
+                <q cite="https://www.geeksforgeeks.org/hash-table-data-structure/">
+                    A Hash table is defined as a data structure used to insert, look up, and remove key-value pairs quickly. It operates on the hashing concept, where each key is translated by a hash function into a distinct index in an array. The index functions as a storage location for the matching value. In simple words, it maps the keys with the value. <a href="#ref1">[1]</a>
+                </q>
+                <p>In computing, a hash table is a data structure that implements an associative array, also called a dictionary or simply map; an associative array is an abstract data type that maps keys to values. 
+                    A hash table uses a hash function to compute an index, also called a hash code, into an array of buckets or slots, from which the desired value can be found. 
+                    During lookup, the key is hashed and the resulting hash indicates where the corresponding value is stored. A map implemented by a hash table is called a hash map.</p>
+                <p>
+                    Most hash table designs employ an imperfect hash function. 
+                    Hash collisions, where the hash function generates the same index for more than one key, therefore typically must be accommodated in some way.
+                </p>
+                <p>
+                    In a well-dimensioned hash table, the average time complexity for each lookup is independent of the number of elements stored in the table. 
+                    Many hash table designs also allow arbitrary insertions and deletions of key–value pairs, at amortized constant average cost per operation.
+                </p>
+                <p>
+                    Hashing is an example of a space-time tradeoff. If memory is infinite, the entire key can be used directly as an index to locate its value with a single memory access. 
+                    On the other hand, if infinite time is available, values can be stored without regard for their keys, and a binary search or linear search can be used to retrieve the element.
+                </p>
+                <p>
+                    In many situations, hash tables turn out to be on average more efficient than search trees or any other table lookup structure. 
+                    For this reason, they are widely used in many kinds of computer software, particularly for associative arrays, database indexing, caches, and sets.
+                </p>
+            </article>
+    </section>
+    <section id="hashfun">
+        <h2>
+            Hash Function
+        </h2>
+        <hr>
+        <article id="hashfunart">
+            <h3>Integer universe assumption</h3>
+            <p>The schemes of hashing used in integer universe assumption include hashing by division, hashing by multiplication, universal hashing, dynamic perfect hashing, and static perfect hashing. 
+                However, hashing by division is the commonly used scheme.
+            </p>
+            <h4>
+                Hashing by division
+            </h4>
+            <p>
+                The scheme in hashing by division is as follows:
+            </p>
+            <p>
+                h(x)=x mod m <br>where h(x) is the hash value of x &epsilon; S and m iis the size of the table.
+            </p>
+            <h3>
+                Choosing a Hash function
+            </h3>
+            <p>
+                Uniform distribution of the hash values is a fundamental requirement of a hash function. 
+                A non-uniform distribution increases the number of collisions and the cost of resolving them. 
+                Uniformity is sometimes difficult to ensure by design, but may be evaluated empirically using statistical tests, e.g., a Pearson's chi-squared test for discrete uniform distributions.
+            </p>
+            <p>
+                The distribution needs to be uniform only for table sizes that occur in the application. 
+                In particular, if one uses dynamic resizing with exact doubling and halving of the table size, then the hash function needs to be uniform only when the size is a power of two. 
+                Here the index can be computed as some range of bits of the hash function. On the other hand, some hashing algorithms prefer to have the size be a prime number.
+            </p>
+            <p>
+                For open addressing schemes, the hash function should also avoid clustering, the mapping of two or more keys to consecutive slots. 
+                Such clustering may cause the lookup cost to skyrocket, even if the load factor is low and collisions are infrequent. 
+                The popular multiplicative hash is claimed to have particularly poor clustering behavior.
+            </p>
+            <p>
+                K-independent hashing offers a way to prove a certain hash function does not have bad keysets for a given type of hashtable. 
+                A number of K-independence results are known for collision resolution schemes such as linear probing and cuckoo hashing. 
+                Since K-independence can prove a hash function works, one can then focus on finding the fastest possible such hash function.
+            </p>
+        </article>
+    </section>
+    <div id="collision">
+        <h2>
+            Collision resolution
+        </h2>
+        <hr>
+        <article id="collart">
+            <p>
+                A search algorithm that uses hashing consists of two parts. The first part is computing a hash function which transforms the search key into an array index. 
+                The ideal case is such that no two search keys hashes to the same array index. However, this is not always the case and is impossible to guarantee for unseen given data. 
+                Hence the second part of the algorithm is collision resolution. 
+                The two common methods for collision resolution are separate chaining and open addressing.
+            </p>
+            <h3>
+                Sepereate chaining
+            </h3>
+            <div id="sepchanel">
+                <p id="newn">
+                    In separate chaining, the process involves building a linked list with key–value pair for each search array index. 
+                    The collided items are chained together through a single linked list, which can be traversed to access the item with a unique search key. Collision resolution through chaining with linked list is a common method of implementation of hash tables. Let 
+                    T and 
+                    x be the hash table and the node respectively, the operation involves as follows:
+                </p>
+                <img id="img1" src="./images/collision.png" alt="Image not accessible." width="418" height="250">
+                <p id="p2">
+                    If the element is comparable either numerically or lexically, and inserted into the list by maintaining the total order, it results in faster termination of the unsuccessful searches.
+                </p>
+                <figure id="img2">
+                    <img  src="./images/collision2.png" alt="Image not accessible." width="418" height="250">
+                    <figcaption>Hash collision resolved by separate chaining</figcaption>
+                </figure>
+                <figure id="img3">
+                    <img  src="./images/collision3.png" alt="Image not accessible." width="418" height="250">
+                    <figcaption>Hash collision by separate chaining with head records in the bucket array.</figcaption>
+                </figure>
+            </div>
+        </article>
+    </div>
+    <div id="onot">
+        <table id="onottable">
+            <tr>
+                <th>Operation</th>
+                <th>Average</th>
+                <th>Worst Case</th>
+            </tr>
+            <tr>
+                <th>Search</th>
+                <td>&theta;(1)</td>
+                <td>O(n)</td>
+            </tr>
+            <tr>
+                <th>Insert</th>
+                <td>&theta;(1)</td>
+                <td>O(n)</td>
+            </tr>
+            <tr>
+                <th>Delete</th>
+                <td>&theta;(1)</td>
+                <td>O(n)</td>
+            </tr>
+        </table>
+        <article id="space">
+            <h2>
+                Space complexity
+            </h2>
+            <hr>
+            <p>In all cases of open addressing, space complexity for hash map remains O(n) where : <br><strong>n = number of elements in the hash map</strong><br>since every element which is stored in the table must have some memory associated with it, no matter the case.</p>
+        </article>
+    </div>
+    </main>
+    <footer>
+        <hr>
+        <p>Group project by Yaksh Sharma , Aaryan Garg , HarmanPreet Singh.</p>
+        <p>This information was taken from wikipedia website.</p>
+        The link to the same is given The link to the same is given <button onclick="window.open('https://en.wikipedia.org/wiki/Linked_list', '_blank');" >Here</button>.
+        <p id="ref1">[1] Quoted from <a href="https://www.geeksforgeeks.org/hash-table-data-structure/">here</a></p>
+    </footer>
+</body>
+</html>
