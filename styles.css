@@ -197,7 +197,6 @@ html{
     flex-direction: column;
     align-items: center; /* Center-align all content horizontally */
   }
-
   main {
     padding: 10px;
     width: 100%;
@@ -223,19 +222,16 @@ html{
     font-size: 14px;
     text-align: center; /* Ensure text in buttons is centered */
   }
-
   header h1 {
     font-size: 1.8rem;
     text-align: center;
     width: 100%;
   }
-
   footer {
     font-size: 14px;
     text-align: center;
     width: 100vw;
   }
-
   /* Page-specific adjustments */
   #examples,
   #listpic,
@@ -246,12 +242,10 @@ html{
     width: 100%;
     text-align: center; /* Center-align content for these sections */
   }
-
   img {
     width: 100%;
     height: auto;
   }
-
   ul {
     width: 100%;
     text-align: left; /* Keep lists aligned left for readability */
@@ -259,7 +253,6 @@ html{
 }
 
 /* For screens up to 480px wide (mobile devices) */
-
 
 /* in this section we are going to make the nav bar go away because it would take 
 up too much of the screen and will make the title or header for the page to appear inline but sticky 
@@ -270,7 +263,6 @@ and above other content  */
     flex-direction: column;
     align-items: center; /* Center-align content horizontally */
   }
-
   main {
     width: 100%;
     max-width: 480px; /* Restrict width for better centering */
@@ -278,24 +270,20 @@ and above other content  */
     flex-direction: column;
     align-items: center; /* Center-align content horizontally */
   }
-
   /* changing the flex box to a coloumn one so that it is easier to see on a mobile screen  */
   nav {
     flex-direction: column;
     align-items: center; /* Center-align navigation links */
   }
-
   .navbtn {
     width: 100%;
     text-align: center; /* Ensure text in buttons is centered */
     padding: 10px;
   }
-
   header h1 {
     font-size: 1.5rem;
     text-align: center;
   }
-
   footer {
     text-align: center;
     width: 100vw;
@@ -307,16 +295,13 @@ and above other content  */
     padding: 0;
     text-align: center; /* Center-align lists */
   }
-
   li {
     margin-bottom: 15px;
   }
-
   img {
     width: 100%;
     height: auto;
   }
-
   /* General sections for all pages */
   #examples,
   #listpic,
@@ -337,7 +322,6 @@ and above other content  */
     flex-direction: column;
     align-items: center;
   }
-
   main {
     padding: 20px;
     display: flex;
@@ -345,27 +329,23 @@ and above other content  */
     align-items: center; /* Center content horizontally */
     width: 90%; /* Make the content responsive to viewport size */
   }
-
   nav {
     width: 100vw;
     display: flex;
     justify-content: center;/* Center navigation */
     margin-bottom: 20px;
   }
-
   .navbtn {
     font-size: 16px;
     margin: 0 10px;
     text-align: center;
     padding: 10px 20px;
   }
-
   header h1 {
     font-size: 2.5rem;
     text-align: center;
     width: 100vw;
   }
-
   /* General content adjustments for all pages */
   #examples,
   #definitions,
@@ -377,25 +357,21 @@ and above other content  */
     margin: 0 auto; /* Center-align the content block */
     text-align: center; /* Center-align the text */
   }
-
   ul {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
     text-align: left; /* Keep lists left-aligned for readability */
   }
-
   li {
     margin-bottom: 15px;
   }
-
   img {
     display: block;
     margin: 0 auto; /* Center-align images */
     max-width: 100%; /* Make images responsive */
     height: auto;
   }
-
   footer {
     text-align: center;
     margin-top: 20px;
