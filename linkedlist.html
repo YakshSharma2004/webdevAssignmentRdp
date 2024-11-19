@@ -20,10 +20,14 @@
                 <a href="#cir">- Circular linked list</a>
             </div>
         </section>
-        <a href="index.html">Home</a>
+        <button onclick="window.location.href='index.html'" class="navbtn">Home</button>
+        <button onclick="window.location.href='array.html'" class="navbtn">Arrays</button>
+        <button onclick="window.location.href='linkedlist.html'" class="navbtn">Linked list</button>
+        <button onclick="window.location.href='hashtables.html'" class="navbtn">Hash Tables</button>
+        <!-- <a href="index.html">Home</a>
         <a href="array.html">Arrays</a>
         <a href="linkedlist.html">Linked list</a>
-        <a href="hashtables.html">Hash Tables</a>
+        <a href="hashtables.html">Hash Tables</a> -->
     </nav>
     <br>
     <header>
@@ -33,6 +37,10 @@
     <main>
         <section>
             <article>
+                <h2>
+                    Introduction
+                </h2>
+                <hr>
                 <p id="intro">
                     In computer science, a linked list is a linear collection of data elements whose order is not given by their physical placement in memory. 
                     Instead, each element points to the next. It is a data structure consisting of a collection of nodes which together represent a sequence. In its most basic form, each node contains data, and a reference (in other words, a link) to the next node in the sequence. 
@@ -59,20 +67,23 @@
                 <p>
                     The 'head' of a list is its first node. The 'tail' of a list may refer either to the rest of the list after the head, or to the last node in the list. In Lisp and some derived languages, the next node may be called the 'cdr' (pronounced /'kʊd.əɹ/) of the list, while the payload of the head node may be called the 'car'. 
                 </p>
-                <h3 id="singlelist">
-                    Singly linked list
-                </h3>
-                <p>
-                    Singly linked lists contain nodes which have a 'value' field as well as 'next' field, which points to the next node in line of nodes. Operations that can be performed on singly linked lists include insertion, deletion and traversal.
-                </p>
-                <img src="./images/img1.png" alt="image not accessible">
-                <h3 id="doublelist">
-                    Doubly linked list
-                </h3>
-                <p>
-                    In a 'doubly linked list', each node contains, besides the next-node link, a second link field pointing to the 'previous' node in the sequence. The two links may be called 'forward('s') and 'backwards', or 'next' and 'prev'('previous').
-                </p>
-                <img src="./images/img2.png" alt="Image not accessible">
+                <hr>
+                <section id="listsmulti">
+                    <h3 id="singlelist">
+                        Singly linked list
+                    </h3>
+                    <p>
+                        Singly linked lists contain nodes which have a 'value' field as well as 'next' field, which points to the next node in line of nodes. Operations that can be performed on singly linked lists include insertion, deletion and traversal.
+                    </p>
+                    <img src="./images/img1.png" alt="Image of a singly linked list.">
+                    <h3 id="doublelist">
+                        Doubly linked list
+                    </h3>
+                    <p>
+                        In a 'doubly linked list', each node contains, besides the next-node link, a second link field pointing to the 'previous' node in the sequence. The two links may be called 'forward('s') and 'backwards', or 'next' and 'prev'('previous').
+                    </p>
+                    <img src="./images/img2.png" alt="Image of a doubly linked list.">
+                </section>
                 <p>
                     A technique known as XOR-linking allows a doubly linked list to be implemented using a single link field in each node. However, this technique requires the ability to do bit operations on addresses, and therefore may not be available in some high-level languages.
                     <br>
@@ -90,7 +101,7 @@
                 <p>
                     In the last node of a linked list, the link field often contains a null reference, a special value is used to indicate the lack of further nodes. A less common convention is to make it point to the first node of the list; in that case, the list is said to be 'circular' or 'circularly linked'; otherwise, it is said to be 'open' or 'linear'. It is a list where the last node pointer points to the first node (i.e., the "next link" pointer of the last node has the memory address of the first node).
                 </p>
-                <img src="./images/img3.png" alt="Image not accessible">
+                <img src="./images/img3.png" alt="Image of a circular linked list.">
                 <p>
                     In the case of a circular doubly linked list, the first node also points to the last node of the list.
                 </p>
@@ -167,19 +178,21 @@
                         </tr>
                     </table>
                 </section>
-                <h3></h3>
-                    Circular linked list
-                </h3>
                 <hr>
-                <p>
-                    A dynamic array is a data structure that allocates all elements contiguously in memory, and keeps a count of the current number of elements. If the space reserved for the dynamic array is exceeded, it is reallocated and (possibly) copied, which is an expensive operation.
-                </p>
-                <p>
-                    Moreover, arbitrarily many elements may be inserted into a linked list, limited only by the total memory available; while a dynamic array will eventually fill up its underlying array data structure and will have to reallocate—an expensive operation, one that may not even be possible if memory is fragmented, although the cost of reallocation can be averaged over insertions, and the cost of an insertion due to reallocation would still be amortized O(1). This helps with appending elements at the array's end, but inserting into (or removing from) middle positions still carries prohibitive costs due to data moving to maintain contiguity. An array from which many elements are removed may also have to be resized in order to avoid wasting too much space.
-                </p>
-                <p>
-                    On the other hand, dynamic arrays (as well as fixed-size array data structures) allow constant-time random access, while linked lists allow only sequential access to elements. Singly linked lists, in fact, can be easily traversed in only one direction. This makes linked lists unsuitable for applications where it's useful to look up an element by its index quickly, such as heapsort. Sequential access on arrays and dynamic arrays is also faster than on linked lists on many machines, because they have optimal locality of reference and thus make good use of data caching.
-                </p>
+                <section>
+                    <h3>
+                        Dynamic Array
+                    </h3>
+                    <p>
+                        A dynamic array is a data structure that allocates all elements contiguously in memory, and keeps a count of the current number of elements. If the space reserved for the dynamic array is exceeded, it is reallocated and (possibly) copied, which is an expensive operation.
+                    </p>
+                    <p>
+                        Moreover, arbitrarily many elements may be inserted into a linked list, limited only by the total memory available; while a dynamic array will eventually fill up its underlying array data structure and will have to reallocate—an expensive operation, one that may not even be possible if memory is fragmented, although the cost of reallocation can be averaged over insertions, and the cost of an insertion due to reallocation would still be amortized O(1). This helps with appending elements at the array's end, but inserting into (or removing from) middle positions still carries prohibitive costs due to data moving to maintain contiguity. An array from which many elements are removed may also have to be resized in order to avoid wasting too much space.
+                    </p>
+                    <p>
+                        On the other hand, dynamic arrays (as well as fixed-size array data structures) allow constant-time random access, while linked lists allow only sequential access to elements. Singly linked lists, in fact, can be easily traversed in only one direction. This makes linked lists unsuitable for applications where it's useful to look up an element by its index quickly, such as heapsort. Sequential access on arrays and dynamic arrays is also faster than on linked lists on many machines, because they have optimal locality of reference and thus make good use of data caching.
+                    </p>
+                </section>
             </article>
     </section>
     </main>

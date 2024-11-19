@@ -18,10 +18,10 @@
                 <a href="#space">- Space complexity</a>
             </div>
         </section>
-        <a href="index.html">Home</a>
-        <a href="array.html">Arrays</a>
-        <a href="linkedlist.html">Linked list</a>
-        <a href="hashtables.html">Hash Tables</a>
+        <button onclick="window.location.href='index.html'" class="navbtn">Home</button>
+        <button onclick="window.location.href='array.html'" class="navbtn">Arrays</button>
+        <button onclick="window.location.href='linkedlist.html'" class="navbtn">Linked list</button>
+        <button onclick="window.location.href='hashtables.html'" class="navbtn">Hash Tables</button>
     </nav>
     <br>
     <header>
@@ -29,8 +29,10 @@
     </header>
     <hr>
     <main class="hashmain">
-        <section>
+        <div>
             <article id="introstart">
+                <h2>Introduction</h2>
+                <hr>
                 <q cite="https://www.geeksforgeeks.org/hash-table-data-structure/">
                     A Hash table is defined as a data structure used to insert, look up, and remove key-value pairs quickly. It operates on the hashing concept, where each key is translated by a hash function into a distinct index in an array. The index functions as a storage location for the matching value. In simple words, it maps the keys with the value. <a href="#ref1">[1]</a>
                 </q>
@@ -54,8 +56,8 @@
                     For this reason, they are widely used in many kinds of computer software, particularly for associative arrays, database indexing, caches, and sets.
                 </p>
             </article>
-    </section>
-    <section id="hashfun">
+    </div>
+    <div id="hashfun">
         <h2>
             Hash Function
         </h2>
@@ -98,42 +100,45 @@
                 Since K-independence can prove a hash function works, one can then focus on finding the fastest possible such hash function.
             </p>
         </article>
-    </section>
-    <div id="collision">
-        <h2>
-            Collision resolution
-        </h2>
-        <hr>
-        <article id="collart">
-            <p>
-                A search algorithm that uses hashing consists of two parts. The first part is computing a hash function which transforms the search key into an array index. 
-                The ideal case is such that no two search keys hashes to the same array index. However, this is not always the case and is impossible to guarantee for unseen given data. 
-                Hence the second part of the algorithm is collision resolution. 
-                The two common methods for collision resolution are separate chaining and open addressing.
-            </p>
-            <h3>
-                Sepereate chaining
-            </h3>
-            <div id="sepchanel">
-                <p id="newn">
-                    In separate chaining, the process involves building a linked list with key–value pair for each search array index. 
-                    The collided items are chained together through a single linked list, which can be traversed to access the item with a unique search key. Collision resolution through chaining with linked list is a common method of implementation of hash tables. Let 
-                    T and 
-                    x be the hash table and the node respectively, the operation involves as follows:
+    </div>
+    <div id="container">
+        <div id="collision">
+            <h2>
+                Collision resolution
+            </h2>
+            <hr>
+            <article id="collart">
+                <p>
+                    A search algorithm that uses hashing consists of two parts. The first part is computing a hash function which transforms the search key into an array index. 
+                    The ideal case is such that no two search keys hashes to the same array index. However, this is not always the case and is impossible to guarantee for unseen given data. 
+                    Hence the second part of the algorithm is collision resolution. 
+                    The two common methods for collision resolution are separate chaining and open addressing.
                 </p>
-                <img id="img1" src="./images/collision.png" alt="Image not accessible." width="418" height="250">
-                <p id="p2">
-                    If the element is comparable either numerically or lexically, and inserted into the list by maintaining the total order, it results in faster termination of the unsuccessful searches.
-                </p>
-                <figure id="img2">
-                    <img  src="./images/collision2.png" alt="Image not accessible." width="418" height="250">
-                    <figcaption>Hash collision resolved by separate chaining</figcaption>
-                </figure>
-                <figure id="img3">
-                    <img  src="./images/collision3.png" alt="Image not accessible." width="418" height="250">
-                    <figcaption>Hash collision by separate chaining with head records in the bucket array.</figcaption>
-                </figure>
-            </div>
+                <h3>
+                    Sepereate chaining
+                </h3>
+                <div id="sepchanel">
+                    <p id="newn">
+                        In separate chaining, the process involves building a linked list with key–value pair for each search array index. 
+                        The collided items are chained together through a single linked list, which can be traversed to access the item with a unique search key. Collision resolution through chaining with linked list is a common method of implementation of hash tables. Let 
+                        T and 
+                        x be the hash table and the node respectively, the operation involves as follows:
+                    </p>
+                    <div id="hashmulti">
+                        <img id="img1" src="./images/collision.png" alt="Image not accessible." width="418" height="250">
+                        <p id="p2">
+                            If the element is comparable either numerically or lexically, and inserted into the list by maintaining the total order, it results in faster termination of the unsuccessful searches.
+                        </p>
+                        <figure id="img2">
+                            <img  src="./images/collision2.png" alt="Image not accessible." width="418" height="250">
+                            <figcaption>Hash collision resolved by separate chaining</figcaption>
+                        </figure>
+                        <figure id="img3">
+                            <img  src="./images/collision3.png" alt="Image not accessible." width="418" height="250">
+                            <figcaption>Hash collision by separate chaining with head records in the bucket array.</figcaption>
+                        </figure>
+                    </div>
+        </div>
         </article>
     </div>
     <div id="onot">
@@ -159,6 +164,8 @@
                 <td>O(n)</td>
             </tr>
         </table>
+    </div>
+    </div>
         <article id="space">
             <h2>
                 Space complexity
@@ -166,7 +173,7 @@
             <hr>
             <p>In all cases of open addressing, space complexity for hash map remains O(n) where : <br><strong>n = number of elements in the hash map</strong><br>since every element which is stored in the table must have some memory associated with it, no matter the case.</p>
         </article>
-    </div>
+    
     </main>
     <footer>
         <hr>

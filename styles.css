@@ -1,13 +1,50 @@
+/* background color for all the page  */
 *{
 background-color: antiquewhite;
 }
-main{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding-left: 8rem;
-    padding-right: 8rem;
+/* making all of the body of the page into a grid as that the items can be arranged in it  */
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+  gap: 10px;
 }
+/* putting different items in the grid to make sure they are in line even if the viewports size changes */
+nav {
+  grid-row: 1;
+  grid-column: 1;
+}
+/* doing the same for header  */
+header {
+  grid-row: 2;
+  grid-column: 1;
+  text-align: center;
+}
+
+main {
+  grid-row: 3;
+  grid-column: 1;
+  padding: 20px;
+}
+/* making the display for the nav bar a flexbox so as to make the content easily adjustable and also to make it responsive */
+nav{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  position: sticky;
+  top: 2px;
+  z-index: 10;
+}
+footer {
+  grid-row: 4;
+  grid-column: 1;
+  text-align: center;
+  padding: 10px;
+}
+
 button:hover{
     cursor: pointer;
 }
@@ -17,6 +54,7 @@ button:hover{
   padding: 10px 15px;
   background-color: #d1ecf1;
 }
+/* editing all the links under the section  */
 .content a{
   background-color: #d4edda;
   display: block;
@@ -24,12 +62,15 @@ button:hover{
   color: black;
   padding: 5px 10px;
 }
+/* editing the div under the nav for the page that will make sure that the div is not visible if mouse is not hovered over it  */
+/* this is done by setting the display to none and also the position is set to absolute so that it can come over other content */
 .dropdown .content{
   box-shadow: 2px 2px 5px black;
   position: absolute;
   display: none;
   min-width: 150px;
 }
+/* make the content visible if mouse is hovered and setting the display to inline so as to to make the content spread through the view port  */
 .dropdown:hover .content{
   display: inline;
 }
@@ -38,49 +79,40 @@ button:hover{
   position: absolute;
   left: 10px; 
 }
+/* setting the z index so that it isnt visible when the dropdown menu id displayed */
 .headd{
   z-index: 2;
 }
+/* making the head sticky  */
 header{
     text-align: center;
     position:sticky;
-    top: 0;
+    top: 34px;
     background-color: antiquewhite;
 }
-nav{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    /* text-align: center; */
-    position: sticky;
-    top: 35px;
-    z-index: 10;
+.navbtn{
+    padding: 6px;
+    margin: 3px;
+    border: none;
+    background-color:#919ee4;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px black;
 }
-nav >a{
-    padding-right: 4px;
+/* making a multi col for the linked list page  */
+#listsmulti{
+  column-count: 2;
+  max-width: 1400px;
 }
-#img1{
-    float: left;
-}
-#img2{
-    float: right;
-    margin-left: 5rem;
-}
-
-#p2{
-    clear: left;
-}
-#img3{
-    float: left;
-}
+/* making the footer clear from both sides */
 footer{
     clear: both;
 }
+/* editing the table  */
 #onottable,table , th,td{
     border: solid black 2px;
     text-align: center;
 }
+/* using the float to make the images and text appear in a certain way  */
 #imgarr{
     float:right
 }
@@ -90,37 +122,282 @@ footer{
 #floating{
     float: right;
 }
+/* changing the background of many things */
 th {
     background-color: #f2f2f2;
   }
-  .header {
+.header {
     background-color: #e0e0e0;
-  }
-  .green {
-    background-color: #d4edda;
-  }
-  .red {
+}
+.green {
+  background-color: #d4edda;
+}
+.red {
     background-color: #f8d7da;
-  }
-  .yellow {
-    background-color: #fff3cd;
-  }
-  .lightblue {
+}
+.yellow {
+  background-color: #fff3cd;
+}
+.lightblue {
     background-color: #d1ecf1;
-  }
-  .gray {
+}
+.gray {
     background-color: #e2e3e5;
-  }
-  .blue-text {
+}
+.blue-text {
     color: #007bff;
-  }
-  .red-text {
+}
+.red-text {
     color: #dc3545;
-  }
+}
 #fortable{
     margin: 0 auto;
     padding: 20px;
 }
 #forct{
     text-align: center;
+}
+/* setting the scroll behaviour to smooth to make clicking on the nav button and scrolling to appear smooth */
+html{
+  scroll-behavior: smooth;
+}
+#space{
+  width: 90vw;
+}
+/* using mutlicol for the index page  */
+#examples ul{
+  column-count: 3;
+  column-rule: 1px solid #ccc;
+}
+#examples li{
+  break-inside: avoid;
+}
+#examples img{
+  width: 350px;
+  margin-top: 10px;
+}
+#listpic{
+  height: 150px;
+}
+/* multicol for hash table page  */
+#hashmulti{
+  column-count: 3;
+  margin-bottom: 15px;
+}
+#hashmulti p{
+  break-inside: avoid;
+}
+/* make a media query so that the content in the body gets its margin and evrything is changed and also maybe change the position of the index thing  */
+/* General styles for screens up to 768px wide */
+@media (max-width: 768px) {
+  /* changing the display to flex box so that the content can be arranged into a coloumn and make it suitable for viewing  and making resizing change auto*/
+  body {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align all content horizontally */
+  }
+
+  main {
+    padding: 10px;
+    width: 100%;
+    max-width: 600px; /* Restrict width for better centering */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align all content horizontally */
+  }
+  nav {
+    flex-direction: column;
+    align-items: center; /* Center the navigation links */
+    position: static;
+    margin-bottom: 10px;
+  }
+.dropdown{
+  display: inline;
+  position: absolute;
+  left: 10px; 
+}
+  .navbtn {
+    margin: 5px 0;
+    padding: 8px;
+    font-size: 14px;
+    text-align: center; /* Ensure text in buttons is centered */
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  footer {
+    font-size: 14px;
+    text-align: center;
+    width: 100vw;
+  }
+
+  /* Page-specific adjustments */
+  #examples,
+  #listpic,
+  #explanation,
+  #operations,
+  #definitions,
+  #comparison {
+    width: 100%;
+    text-align: center; /* Center-align content for these sections */
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  ul {
+    width: 100%;
+    text-align: left; /* Keep lists aligned left for readability */
+  }
+}
+
+/* For screens up to 480px wide (mobile devices) */
+
+
+/* in this section we are going to make the nav bar go away because it would take 
+up too much of the screen and will make the title or header for the page to appear inline but sticky 
+and above other content  */
+@media (max-width: 480px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align content horizontally */
+  }
+
+  main {
+    width: 100%;
+    max-width: 480px; /* Restrict width for better centering */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align content horizontally */
+  }
+
+  /* changing the flex box to a coloumn one so that it is easier to see on a mobile screen  */
+  nav {
+    flex-direction: column;
+    align-items: center; /* Center-align navigation links */
+  }
+
+  .navbtn {
+    width: 100%;
+    text-align: center; /* Ensure text in buttons is centered */
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  footer {
+    text-align: center;
+    width: 100vw;
+  }
+
+  /* Adjustments for lists and images on all pages */
+  ul {
+    width: 100%;
+    padding: 0;
+    text-align: center; /* Center-align lists */
+  }
+
+  li {
+    margin-bottom: 15px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* General sections for all pages */
+  #examples,
+  #listpic,
+  #explanation,
+  #operations,
+  #definitions,
+  #comparison {
+    text-align: center; /* Center-align content */
+    width: 100%;
+  }
+}
+
+/* For screens wider than 769px */
+/* this is for any screen more than 769px  */
+@media (min-width: 769px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    width: 90%; /* Make the content responsive to viewport size */
+  }
+
+  nav {
+    width: 100vw;
+    display: flex;
+    justify-content: center;/* Center navigation */
+    margin-bottom: 20px;
+  }
+
+  .navbtn {
+    font-size: 16px;
+    margin: 0 10px;
+    text-align: center;
+    padding: 10px 20px;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    width: 100vw;
+  }
+
+  /* General content adjustments for all pages */
+  #examples,
+  #definitions,
+  #comparison,
+  #explanation,
+  #operations {
+    width: 100%;
+    max-width: 800px; /* Restrict the width for content readability */
+    margin: 0 auto; /* Center-align the content block */
+    text-align: center; /* Center-align the text */
+  }
+
+  ul {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left; /* Keep lists left-aligned for readability */
+  }
+
+  li {
+    margin-bottom: 15px;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto; /* Center-align images */
+    max-width: 100%; /* Make images responsive */
+    height: auto;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 20px;
+  }
 }
